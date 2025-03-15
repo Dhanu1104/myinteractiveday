@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <title>My Interactive Day</title>
+    <link rel="Stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Welcome to My Interactive Day!</h1>
+    <p>Click the buttons below to brighten your day.</p>
+<div class="content">
+    <!-- Button to change background color -->
+    <button id="colorButton" onclick="changeBackground()">Click to change backgroundColor</button>
+
+    <!-- Greeting Message -->
+    <button id="greetButton" onclick="showGreeting()">Greet Me</button>
+
+    <!-- Calculator -->
+    <div class="calculator">
+        <h2>Quick Budget Calculator</h2>
+        <input type="number" id="expense1" placeholder="Expense 1">
+        <input type="number" id="expense2" placeholder="Expense 2">
+        <button onclick="calculateBudget()">Calculate</button>
+        <p id="budgetResult"></p>
+    </div>
+</div>
+    <script>
+        function changeBackground() {
+            let colors = ["red","blue","darkgrey","pink","green","purple"];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        function showGreeting() {
+            let hour = new Date().getHours();
+            let greeting;
+            if (hour < 12) {
+                greeting = "Good Morning! Have a productive day!";
+            } else if (hour < 18) {
+                greeting = "Good Afternoon! Keep going strong!";
+            } else {
+                greeting = "Good Evening! Time to relax!";
+            }
+            alert(greeting);
+        }
+
+        function calculateBudget() {
+            let num1 = parseFloat(document.getElementById("expense1").value);
+            let num2 = parseFloat(document.getElementById("expense2").value);
+            let total = num1 + num2;
+            if (!isNaN(total)) {
+                document.getElementById("budgetResult").innerText = "Total Expenses: RS." + total.toFixed(2);
+            } else {
+                document.getElementById("budgetResult").innerText = "Please enter valid amounts";
+            }
+        }
+    </script>
+
+</body>
+</html>
