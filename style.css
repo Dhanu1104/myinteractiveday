@@ -43,6 +43,9 @@ input {
     margin: 5px;
     width: 120px;
 }
+.button button{
+    padding: 9px;
+}
 p {
     font-size: 18px;
     font-weight: bold;
